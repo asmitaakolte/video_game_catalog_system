@@ -1,0 +1,16 @@
+<h1>List of Games</h1>
+<ul>
+   
+    <li><a href="/addgame">Add A Game</a></li>
+</ul>
+<p></p>
+<table cellpadding="10" cellspacing="0">
+    <tr>
+        <td>GID</td><td>Name</td>
+    </tr>
+    <tr *ngFor="let game of games">
+        <td><a href="game/{{game.gid}}">{{game.gid}}</a></td><td>{{game.name}}</td>
+
+        
+    </tr>
+</table>
