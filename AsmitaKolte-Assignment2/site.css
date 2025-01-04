@@ -1,0 +1,85 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Jun 24, 2024, 9:49:09 AM
+    Author     : merut
+*/
+
+h1 {
+    color: green;
+}
+
+b {
+    color: green;
+}
+
+tr {
+    color: darkgreen;
+    background-color: lightgreen;
+}
+
+tr:nth-child(even) {
+    color: darkgreen;
+    background-color: limegreen;
+}
+
+tr.form {
+    color: darkgreen;
+    background-color: lightgreen;
+}
+
+input[type=text] {
+    border-radius: 5px;
+    background-color: lime;
+    border: 2px solid green;
+}
+
+select {
+  
+  
+  border: 2px solid green;
+  border-radius: 5px;
+  background-color: lime;
+}
+
+input[type=submit]{
+  background-color: lime;
+  border: 2px solid green;
+  border-radius: 5px;
+  float: left;
+}
+
+input[type=reset] {
+  float: right;
+  background-color: lime;
+  border: 2px solid green;
+  border-radius: 5px;
+  
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: darkgreen;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: lightgreen;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: limegreen;
+}
