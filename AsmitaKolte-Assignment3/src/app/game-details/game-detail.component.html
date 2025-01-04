@@ -1,0 +1,32 @@
+<h1>Game Detail: {{gid}}</h1>
+
+<ul>
+    <li><a href="/list">List of Games</a></li>
+    <li><a href="/addgame">Add A Game</a></li>
+</ul>
+<p></p>
+
+<table cellpadding="10" cellspacing="0">
+    <tr>
+        <td>GID: </td><td>{{game.gid}}</td>
+    </tr>
+    <tr>
+        <td>Name: </td><td>{{game.name}}</td>
+    </tr>
+    <tr>
+        <td>System: </td><td>{{game.system}}</td>
+    </tr>
+    <tr>
+        <td>Genre: </td><td>{{game.genre}}</td>
+    </tr>
+    <tr>
+        <td>Price: </td><td>{{game.price | currency }}</td>
+    </tr>
+    
+    <tr>
+        <td colspan="2"><a (click)="delete(game.gid)"><span class="material-symbols-outlined">delete</span></a>
+            <a href="editgame/{{game.gid}}"><span class="material-symbols-outlined">edit</span></a></td>
+    </tr>
+
+
+</table>
