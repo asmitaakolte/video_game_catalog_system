@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+
+        <h1>Add New Game</h1>
+        
+        <ul>
+            <li><a href="/list">List of Games</a></li>
+            
+        </ul>
+        <p></p>
+        
+        
+        <form (ngSubmit)="onSubmit(myform)" #myform="ngForm" novalidate>
+            <table cellpadding="10" cellspacing="0" border="0">
+                
+                <tr class="form">
+        
+       
+                    <td><span [ngClass]="{ 'errors': (gidAlreadyExists && gid.pristine && gid.untouched) || (gid.invalid && gid.touched && gid.dirty) }"><b>GID<span *ngIf="gidAlreadyExists && gid.pristine && gid.untouched"> (GID 
+                        Already Exists!)</span><span *ngIf="gid.invalid && gid.errors?.['required'] && gid.touched && gid.dirty"> (GID 
+                        cannot be left blank!)</span><span *ngIf="gid.invalid && (gid.errors?.['min'] || gid.errors?.['max'] || gid.errors?.['notint'] ) && gid.touched && gid.dirty"> (GID must 
+                        be 6 digit integer)</span>:</b></span></td> <td><input type="number" name="GID" max="999999" min="100000" mustbeint [(ngModel)]="game.gid" #gid="ngModel" required></td>
+                </tr>
+                <tr class="form">
+                    
+                    <td><span [ngClass]="{ 'errors': name.invalid && name.touched && name.dirty}"><b>Name<span *ngIf=" name.invalid && name.touched && name.dirty"> (Name cannot be blank!)</span>:</b></span></td> <td><input required type="text" name="name" [(ngModel)]="game.name" #name="ngModel"></td>
+                </tr>
+                <tr class="form">
+                    <td><b>System</b></td><td>
+                        <select name="system" [(ngModel)]="game.system">
+                            <option selected value="Switch">Switch</option>
+                            <option value="Nintendo 64">Nintendo 64</option>
+                            <option value="Nintendo Wii">Nintendo Wii</option>
+                            <option value="SNES">SNES</option>
+                        </select></td>
+                </tr>
+                
+                <tr class="form">
+                    <td><b>Genre</b></td><td>
+                        <select name="genre" [(ngModel)]="game.genre">
+                            <option selected value="RPG">RPG</option>
+                            <option value="Racing">Racing</option>
+                            <option value="Fighting">Fighting</option>
+                            
+                        </select></td>
+                </tr>
+                
+                <tr class="form">
+                <td><span [ngClass]="{ 'errors': price.invalid && price.touched && price.dirty}"><b>Price<span *ngIf=" price.invalid && price.errors?.['required'] && price.touched && price.dirty"> (Price 
+                    cannot be blank!)</span><span *ngIf=" price.invalid && price.errors?.['min'] && price.touched && price.dirty" > (Price must be greater than 0) </span>:</b></span></td> <td><input required type="number" min="0.01" name="price" [(ngModel)]="game.price" #price="ngModel"></td>
+               
+                </tr>
+                <tr class="form">
+                    <td colspan="2"><input [disabled]="!myform.form.valid" type="submit" value="Add Game"><input type="reset" value="Start Over"></td>
+                </tr>
+                
+                
+                
+            </table>
+        </form>
+
+
