@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Add New Game</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="site.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- script copied from javascriptdemo -->
+        <script type="text/javascript">
+        function validateForm() {
+            var error = false;
+            var message = "";
+
+            //sid field
+            var value = document.forms["form1"]["GID"].value;
+            if ((value == null) || (value.length <= 0)) {
+                error = true;
+                message = message + "GID cannot be blank!";
+
+                document.getElementById("gidlabel").style = "color:red";
+                document.getElementById("gidlabel").innerHTML = "GID (" + message + "):";
+                message = message + "\n";
+
+
+
+            } else {
+                if (isNaN(value)) {
+                    //SID is not a number
+                    error = true;
+                    message = message + "GID must be a number!";
+
+                    document.getElementById("gidlabel").style = "color:red";
+                    document.getElementById("gidlabel").innerHTML = "GID (" + message + "):";
+                    message = message + "\n";
+
+
+                } else {
+                    
+                    //now to check range
+                    if ((value > 999999) || (value < 100000)) {
+                        //SID is not a number
+                        error = true;
+                        message = message + "GID must be a six digit number!";
+
+                        document.getElementById("gidlabel").style = "color:red";
+                        document.getElementById("gidlabel").innerHTML = "GID (" + message + "):";
+                        message = message + "\n";
+                    } else {
+                        //revert back to original
+                        document.getElementById("gidlabel").style = "";
+                        document.getElementById("gidlabel").innerHTML = "GID:"; //" (" + message + "):";
+                    }
+                    
+                    
+                    
+                    
+                    
+                }
+            }
+            //nave field
+            value = document.forms["form1"]["name"].value;
+            if ((value == null) || (value.length <= 0)) {
+                error = true;
+                mymessage = "Name cannot be blank!"
+                message = message + mymessage + "\n";
+
+                document.getElementById("namelabel").style.color = "red";
+                document.getElementById("namelabel").innerHTML = "Name (" + mymessage + "):";
+
+
+            } else {
+                document.getElementById("namelabel").style = "";
+                document.getElementById("namelabel").innerHTML = "Name:"; //" (" + message + "):";
+            }
+
+
+            //gpa field
+            value = document.forms["form1"]["price"].value;
+            if ((value == null) || (value.length <= 0)) {
+                error = true;
+                mymessage = "Price cannot be blank!";
+                message = message + mymessage + "\n";
+                document.getElementById("pricelabel").style.color = "red";
+                document.getElementById("pricelabel").innerHTML = "Price (" + mymessage + "):";
+
+
+
+
+            } else {
+
+                if (isNaN(value)) {
+                    //SID is not a number
+                    error = true;
+
+                    mymessage = "Price must be a number!";
+                    message = message + mymessage + "\n";
+                    document.getElementById("pricelabel").style.color = "red";
+                    document.getElementById("pricelabel").innerHTML = "Price (" + mymessage + "):";
+
+
+                } else {
+                    if ((value < 0)) {
+                        //SID is not a number
+                        error = true;
+                        mymessage = "Price must be greater than 0!";
+                        message = message + mymessage + "\n";
+
+                        document.getElementById("pricelabel").style.color = "red";
+                        document.getElementById("pricelabel").innerHTML = "Price (" + mymessage + "):";
+
+
+                    } else {
+                        document.getElementById("pricelabel").style = "";
+                        document.getElementById("pricelabel").innerHTML = "Price:"; //" (" + message + "):";
+
+                    }
+                }
+
+            }
+
+            
+
+            if (error) {
+                alert(message);
+                return false;
+            } else {
+                return true;
+            }
+
+
+        }
+    </script>
+        
+        
+        
+        
+    </head>
+    <body>
+        <h1>Add New Game</h1>
+        
+        <ul>
+            <li><a href="index.html">List of Games</a></li>
+        </ul>
+        <p></p>
+        
+        
+        <form action="GET" method="addGame.html" id="form1">
+            <table cellpadding="10" cellspacing="0" border="0">
+                <tr class="form">
+                    <td><b><div id="gidlabel">GID:</div></b></td><td><input type="text" name="GID"></td>
+                </tr>
+                <tr class="form">
+                    <td><b><div id="namelabel">Name:</div></td><td><input type="text" name="name"></td>
+                </tr>
+                
+                <tr class="form">
+                    <td><b>System</b></td><td>
+                        <select name="system">
+                            <option selected value="Switch">Switch</option>
+                            <option value="Nintendo 64">Nintendo 64</option>
+                            <option value="Nintendo Wii">Nintendo Wii</option>
+                            <option value="SNES">SNES</option>
+                        </select></td>
+                </tr>
+                
+                <tr class="form">
+                    <td><b>Genre</b></td><td>
+                        <select name="genre">
+                            <option selected value="RPG">RPG</option>
+                            <option value="Racing">Racing</option>
+                            <option value="Fighting">Fighting</option>
+                            
+                        </select></td>
+                </tr>
+                
+                
+                
+                <tr class="form">
+                    <td><b><div id="pricelabel">Price:</div></b></td><td><input type="text" name="price"></td>
+                </tr>
+                <tr class="form">
+                    <td colspan="2"><input type="submit" onclick="return validateForm()" value="Add Game"><input type="reset" value="Start Over"></td>
+                </tr>
+                
+                
+                
+            </table>
+        </form>
+        
+    </body>
+</html>
